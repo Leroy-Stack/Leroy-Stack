@@ -1,1 +1,21 @@
 
+# _config.yml for GitHub Pages Portfolio
+
+# Basic settings
+title: "Your Name | Portfolio"  # Site title
+description: "AI Game Developer & Digital Creator"  # Meta description
+baseurl: ""  # Leave blank unless using project pages
+url: "https://yourusername.github.io"  # Your GitHub Pages URL
+
+# Build settings
+theme: minimal  # Simplest built-in theme (or remove if not using Jekyll)
+plugins:
+  - jekyll-seo-tag  # For better SEO
+
+# Optional features
+repository: "yourusername/yourusername.github.io"  # Your repo
+show_downloads: false  # Hide unnecessary buttons
+
+# Custom variables (access via {{ site.your_var }} in files)
+your_name: "Your Name"
+email: "your@email.com"
