@@ -3,33 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leroy Smith's Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #0066cc;
-        }
-        .signature {
-            font-style: italic;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Leroy Smith | AI Game Developer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to Leroy Smith's portfolio.</p>
-    <p>AI Game Developer | Creative Technologist</p>
-    
-    <div class="signature">
-        - Leroy "Stack" Smith -
-    </div>
+    <header>
+        <div class="pixel-corners">
+            <h1>LEROY "STACK" SMITH</h1>
+            <h2>AI Game Developer</h2>
+        </div>
+    </header>
 
-    <!-- Simple link that won't cause 404 errors -->
-    <p>Coming soon: <a href="projects.html">My Projects</a></p>
+    <nav>
+        <ul>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#ai">AI Projects</a></li>
+            <li><a href="#creative">Creative</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Games Section -->
+        <section id="games" class="section-pixel">
+            <h2>🎮 Game Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>The Lost Sketchbook</h3>
+                    <p>AI-assisted 2D platformer</p>
+                    <div class="tags">
+                        <span>Unity</span>
+                        <span>Stable Diffusion</span>
+                    </div>
+                </div>
+                <!-- Add more game projects -->
+            </div>
+        </section>
+
+        <!-- AI Works Section -->
+        <section id="ai" class="section-pixel">
+            <h2>🤖 AI Creations</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>AI Character Generator</h3>
+                    <p>Procedural NPCs with Inworld AI</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>LLMs</span>
+                    </div>
+                </div>
+                <!-- Add more AI projects -->
+            </div>
+        </section>
+
+        <!-- Creative Section -->
+        <section id="creative" class="section-pixel">
+            <h2>🎨 Creative Works</h2>
+            <p>Digital art and music coming soon!</p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="pixel-corners">
+            <h2>Get In Touch</h2>
+            <p>Email: <a href="mailto:Leroymichsmith@gmail.com">Leroymichsmith@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://github.com/Leroy-Stack">GitHub</a>
+                <!-- Add other social links -->
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
