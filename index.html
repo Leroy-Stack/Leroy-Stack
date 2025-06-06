@@ -4,75 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leroy Smith | AI Game Developer</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --red: #ff0000;
+            --gray: #f0f0f0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* Side Banner */
+        .banner {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        .banner h1 {
+            font-size: 24px;
+            margin: 0 0 40px 0;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: right;
+        }
+        
+        /* Main Content */
+        .content {
+            margin-left: 200px;
+            padding: 40px;
+        }
+        
+        /* Navigation */
+        nav {
+            margin-bottom: 60px;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin-bottom: 15px;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--red);
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--red);
+        }
+        
+        /* Important elements */
+        .important {
+            color: var(--red);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--black);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: var(--red);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="pixel-corners">
-            <h1>LEROY "STACK" SMITH</h1>
-            <h2>AI Game Developer</h2>
-        </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#ai">AI Projects</a></li>
-            <li><a href="#creative">Creative</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <!-- Games Section -->
-        <section id="games" class="section-pixel">
-            <h2>🎮 Game Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>The Lost Sketchbook</h3>
-                    <p>AI-assisted 2D platformer</p>
-                    <div class="tags">
-                        <span>Unity</span>
-                        <span>Stable Diffusion</span>
-                    </div>
-                </div>
-                <!-- Add more game projects -->
-            </div>
+    <!-- Left Banner -->
+    <div class="banner">
+        <h1>LEROY SMITH</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#social">Find Me</a></li>
+                <li><a href="#games" class="important">Games</a></li>
+                <li><a href="#ai" class="important">AI Works</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="content">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>AI Game Developer blending technical skills with creative vision. Specializing in Unity, Unreal Engine, and AI integration for innovative gameplay experiences.</p>
+            <p>With a background in both programming and digital art, I create games that push technical boundaries while maintaining strong artistic direction.</p>
         </section>
-
-        <!-- AI Works Section -->
-        <section id="ai" class="section-pixel">
-            <h2>🤖 AI Creations</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>AI Character Generator</h3>
-                    <p>Procedural NPCs with Inworld AI</p>
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>LLMs</span>
-                    </div>
-                </div>
-                <!-- Add more AI projects -->
-            </div>
+        
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>Resume</h2>
+            <p><a href="#" class="important">Download PDF</a></p>
+            
+            <h3>Experience</h3>
+            <p><strong>AI Game Developer</strong> | Freelance | 2022-Present</p>
+            <ul>
+                <li>Developed AI-assisted game prototypes</li>
+                <li>Implemented procedural content generation</li>
+            </ul>
         </section>
-
-        <!-- Creative Section -->
-        <section id="creative" class="section-pixel">
-            <h2>🎨 Creative Works</h2>
-            <p>Digital art and music coming soon!</p>
-        </section>
-    </main>
-
-    <footer id="contact">
-        <div class="pixel-corners">
-            <h2>Get In Touch</h2>
-            <p>Email: <a href="mailto:Leroymichsmith@gmail.com">Leroymichsmith@gmail.com</a></p>
+        
+        <!-- Social Section -->
+        <section id="social">
+            <h2>Find Me Online</h2>
             <div class="social-links">
                 <a href="https://github.com/Leroy-Stack">GitHub</a>
-                <!-- Add other social links -->
+                <a href="#">LinkedIn</a>
+                <a href="#">ArtStation</a>
+                <a href="mailto:Leroymichsmith@gmail.com" class="important">Email</a>
             </div>
-        </div>
-    </footer>
+        </section>
+        
+        <!-- Games Section -->
+        <section id="games">
+            <h2 class="important">Game Projects</h2>
+            <p>Coming soon - currently in development</p>
+        </section>
+        
+        <!-- AI Works Section -->
+        <section id="ai">
+            <h2 class="important">AI Projects</h2>
+            <p>AI-assisted game development tools and experiments</p>
+        </section>
+    </div>
 </body>
 </html>
