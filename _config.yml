@@ -1,21 +1,28 @@
+# _config.yml for Leroy Smith's Portfolio
+# Repository: Leroy-Stack/Leroy-Stack.github.io
 
-# _config.yml for GitHub Pages Portfolio
+# Site Identity
+title: "Leroy Smith | AI Game Developer"
+name: "Leroy Smith"
+description: "Portfolio showcasing game development, AI projects, and creative work"
+email: "Leroymichsmith@gmail.com"
+url: "https://leroy-stack.github.io"  # Your GitHub Pages URL
+baseurl: ""  # Leave blank for user sites
 
-# Basic settings
-title: "Your Name | Portfolio"  # Site title
-description: "AI Game Developer & Digital Creator"  # Meta description
-baseurl: ""  # Leave blank unless using project pages
-url: "https://yourusername.github.io"  # Your GitHub Pages URL
-
-# Build settings
-theme: minimal  # Simplest built-in theme (or remove if not using Jekyll)
+# Technical Settings
+theme: minimal  # Simplest Jekyll theme (remove if not needed)
 plugins:
-  - jekyll-seo-tag  # For better SEO
+  - jekyll-seo-tag  # For better search visibility
+markdown: kramdown  # Default Markdown processor
 
-# Optional features
-repository: "yourusername/yourusername.github.io"  # Your repo
-show_downloads: false  # Hide unnecessary buttons
+# Social Links (optional)
+social:
+  github: Leroy-Stack
+  # Add others later: twitter, linkedin, etc.
 
-# Custom variables (access via {{ site.your_var }} in files)
-your_name: "Your Name"
-email: "your@email.com"
+# Custom Variables
+skills:
+  - "Unreal Engine"
+  - "Unity"
+  - "Python"
+  - "AI Integration"
