@@ -1,106 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leroy Smith | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio | Data Science & Projects</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <img src="assets/profile.jpg" alt="Leroy Smith" class="profile-pic" />
-      <h1><span id="typing"></span></h1>
-      <p class="subtitle">Computer Science Undergraduate | Tech & UX Enthusiast</p>
-      <div class="social-links">
-        <a href="https://github.com/Leroy-Stack" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/leroy-smith-0249aa386/" target="_blank">LinkedIn</a>
-      </div>
-    </div>
+  <header>
+    <nav>
+      <h1>My Portfolio</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gamedev">Game Dev</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I'm a second-year Computer Science undergraduate at the University of Sussex, passionate about problem-solving, creative technology, and user experience. I have experience in immersive learning design, customer engagement, and collaborative development environments. I love working on projects that blend creativity with technical innovation.</p>
+  <section id="about" class="hero">
+    <h2>Hi, I'm [Your Name]</h2>
+    <p>Aspiring Data Scientist & Analyst | Turning data into actionable insights</p>
   </section>
 
-  <section id="experience" class="section">
+  <section id="experience">
     <h2>Experience</h2>
-    <div class="experience-item">
-      <h3>Virtually Educational — Tech & UX Intern</h3>
-      <span>Jun 2025 – Sep 2025</span>
+    <div class="card">
+      <h3>Hospitality / Admin Roles</h3>
+      <p><strong>Key Achievements:</strong></p>
       <ul>
-        <li>Collaborated on AR and UX-focused educational projects including barista training and cricket instruction simulations.</li>
-        <li>Designed and tested 3D learning spaces to enhance knowledge transfer.</li>
-        <li>Contributed to immersive learning environments using Unity and interactive media.</li>
+        <li>Analyzed sales data to optimize inventory and reduce waste by 15%</li>
+        <li>Managed datasets and tracked KPIs to improve operational efficiency</li>
+        <li>Collaborated with teams to improve processes using Excel and reporting tools</li>
       </ul>
     </div>
 
-    <div class="experience-item">
-      <h3>GiffGaff — Student Ambassador</h3>
-      <span>Oct 2024 – Nov 2024</span>
+    <div class="card">
+      <h3>Internships & Project Work</h3>
+      <p><strong>Key Achievements:</strong></p>
       <ul>
-        <li>Promoted SIM cards via guerrilla marketing and creative content.</li>
-        <li>Engaged with customers to communicate brand benefits.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Las Iguanas — Bartender</h3>
-      <span>May 2024 – Jun 2024</span>
-      <ul>
-        <li>Mixed and served cocktails while maintaining safety and efficiency standards.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Brewers Fayre — Front of House</h3>
-      <span>Aug 2022 – Mar 2023</span>
-      <ul>
-        <li>Crafted cocktails, managed inventory, and trained new staff.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Ash Hand Car Wash — Receptionist</h3>
-      <span>Sep 2019 – Feb 2022</span>
-      <ul>
-        <li>Handled customer service, scheduling, and payment operations.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <h3>Racquet Studios — Creative Production Assistant</h3>
-      <span>2024</span>
-      <ul>
-        <li>Recorded and produced a music video for Hate Shit Black Groove using DSLR cameras and lighting rigs.</li>
+        <li>Built dashboards and analyzed trends using Python and Tableau</li>
+        <li>Applied statistical methods to evaluate project performance</li>
+        <li>Managed projects from conception to actionable insights</li>
       </ul>
     </div>
   </section>
 
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <p><strong>University of Sussex</strong> — MSci Computer Science (On track to achieve 2:1) <br> Oct 2023 – Jul 2026</p>
-    <p><strong>East Sussex College</strong> — Level 3 Extended Diploma in Game Development (Distinction)</p>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>F1 Race Data Analysis</h3>
+        <p>Analyzed lap times and race strategies using Python & Pandas. Visualized key trends and insights.</p>
+        <a href="https://github.com/username/f1-analysis" target="_blank">View Code</a>
+      </div>
+      <div class="card">
+        <h3>Sales Dashboard</h3>
+        <p>Created interactive dashboards in Tableau showing sales trends, KPIs, and forecasting accuracy.</p>
+        <a href="https://github.com/username/sales-dashboard" target="_blank">View Code</a>
+      </div>
+    </div>
   </section>
 
-  <section id="skills" class="section">
-    <h2>Technical Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>Java</li>
-      <li>SQL</li>
-      <li>JavaScript</li>
-      <li>C# (Unity)</li>
-      <li>Web Development</li>
-      <li>Database Management</li>
-      <li>Microsoft Office</li>
+  <section id="gamedev">
+    <h2>Game Dev Corner</h2>
+    <p>Check out my experimental game dev projects here:</p>
+    <ul>
+      <li><a href="https://github.com/username/unity-mini-game" target="_blank">Unity Mini Game</a></li>
+      <li><a href="https://github.com/username/unreal-demo" target="_blank">Unreal Engine Demo</a></li>
     </ul>
+    <p>For full game dev portfolio, see my <a href="https://gamedev.example.com" target="_blank">separate site</a>.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Leroy Smith | <a href="mailto:Leroymichsmith@gmail.com">Leroymichsmith@gmail.com</a></p>
+    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
   </footer>
 </body>
 </html>
