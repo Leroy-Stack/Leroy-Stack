@@ -1,77 +1,55 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  background-color: #f4f4f4;
   color: #333;
-  background: #f9f9f9;
 }
 
 header {
-  background: #1e1e1e;
+  background-color: #333;
   color: #fff;
-  padding: 20px 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: auto;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.hero {
-  background: #4CAF50;
-  color: white;
-  padding: 60px 20px;
   text-align: center;
+  padding: 30px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+header p {
+  margin: 5px 0 0;
 }
 
 section {
-  padding: 40px 20px;
-  width: 90%;
-  margin: auto;
+  width: 80%;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 h2 {
-  color: #1e1e1e;
-  margin-bottom: 20px;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
 }
 
-.card, .card-grid .card {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.job, ul {
+  margin: 15px 0;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-a {
-  color: #4CAF50;
-  text-decoration: none;
+ul li {
+  margin-bottom: 8px;
 }
 
 footer {
-  background: #1e1e1e;
-  color: #fff;
   text-align: center;
   padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+  margin-top: 40px;
 }
