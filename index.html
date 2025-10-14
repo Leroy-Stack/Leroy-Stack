@@ -1,88 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio | Data Science & Projects</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leroy Smith | Portfolio</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base & Reset */
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: #111; color: #eee; overflow-x:hidden; }
+        a { color: inherit; text-decoration:none; }
+
+        /* Container */
+        .container { width:90%; max-width:1200px; margin:auto; padding:2rem 0; }
+
+        /* Hero Section */
+        header { 
+            display:flex; 
+            flex-direction:column; 
+            align-items:center; 
+            justify-content:center; 
+            min-height:100vh; 
+            background: linear-gradient(135deg, #333, #111); 
+            backdrop-filter: blur(8px); 
+            text-align: center;
+        }
+        header img { 
+            width:150px; 
+            height:150px;
+            border-radius:50%; 
+            border:3px solid rgba(255,255,255,0.2); 
+            object-fit: cover;
+        }
+        header h1 { 
+            margin:1rem 0 0.5rem; 
+            font-size:3rem; 
+            background: linear-gradient(90deg, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p { font-size:1.2rem; color:#bbb; margin-bottom: 2rem; }
+        .buttons { margin-top:1rem; display:flex; gap:1rem; flex-wrap: wrap; justify-content: center; }
+        .buttons a { 
+            padding:0.8rem 1.5rem; 
+            background:rgba(255,255,255,0.1); 
+            border:1px solid #eee; 
+            border-radius:8px; 
+            transition:0.3s; 
+            font-weight: 600;
+        }
+        .buttons a:hover { background:#eee; color:#111; transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding:4rem 0; }
+        h2 { text-align:center; margin-bottom:2rem; font-size:2.5rem; }
+
+        /* Cards */
+        .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; }
+        .card { 
+            background: rgba(255,255,255,0.05); 
+            border:1px solid rgba(255,255,255,0.2); 
+            padding:2rem; 
+            border-radius:12px; 
+            backdrop-filter: blur(6px); 
+            transition: transform 0.3s; 
+            height: 100%;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { margin-bottom:0.5rem; font-size: 1.3rem; }
+        .card p { font-size:0.9rem; color:#ccc; margin-bottom: 1rem; }
+        .card ul { list-style: none; padding-left: 0; }
+        .card li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+        .card li::before { content: '▹'; position: absolute; left: 0; color: #eee; }
+
+        /* Skills */
+        .skills { display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; }
+        .skill { 
+            background: rgba(255,255,255,0.1); 
+            padding:0.6rem 1.2rem; 
+            border-radius:8px; 
+            font-weight:600; 
+            transition:0.3s; 
+            font-size: 0.9rem;
+        }
+        .skill:hover { background:#eee; color:#111; transform: scale(1.05); }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Contact */
+        .contact { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .contact a { 
+            display:inline-block; 
+            margin:0.5rem; 
+            padding:0.8rem 1.5rem; 
+            border:1px solid #eee; 
+            border-radius:8px; 
+            transition:0.3s;
+            background: rgba(255,255,255,0.1);
+        }
+        .contact a:hover { background:#eee; color:#111; }
+
+        /* Responsive */
+        @media(max-width:768px){ 
+            header h1{ font-size:2.5rem; } 
+            .buttons { flex-direction: column; align-items: center; }
+            .buttons a { width: 200px; text-align: center; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>My Portfolio</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#gamedev">Game Dev</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section id="about" class="hero">
-    <h2>Hi, I'm [Your Name]</h2>
-    <p>Aspiring Data Scientist & Analyst | Turning data into actionable insights</p>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Hospitality / Admin Roles</h3>
-      <p><strong>Key Achievements:</strong></p>
-      <ul>
-        <li>Analyzed sales data to optimize inventory and reduce waste by 15%</li>
-        <li>Managed datasets and tracked KPIs to improve operational efficiency</li>
-        <li>Collaborated with teams to improve processes using Excel and reporting tools</li>
-      </ul>
+<!-- Hero -->
+<header>
+    <img src="assets/profile.jpg" alt="Leroy Smith" class="fade-in">
+    <h1 class="fade-in">Leroy Smith</h1>
+    <p class="fade-in">Computer Science Undergrad | Problem Solver | Creative Technologist</p>
+    <div class="buttons">
+        <a href="assets/Leroy-Smith-CV.pdf" download>Download CV</a>
+        <a href="https://www.linkedin.com/in/leroy-smith-0249aa386/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Leroy-Stack" target="_blank">GitHub</a>
+        <a href="#contact">Contact</a>
     </div>
+</header>
 
-    <div class="card">
-      <h3>Internships & Project Work</h3>
-      <p><strong>Key Achievements:</strong></p>
-      <ul>
-        <li>Built dashboards and analyzed trends using Python and Tableau</li>
-        <li>Applied statistical methods to evaluate project performance</li>
-        <li>Managed projects from conception to actionable insights</li>
-      </ul>
+<!-- About -->
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="card fade-in">
+            <p>Third-year Computer Science undergraduate with a passion for problem-solving and effective communication. Proven track record of achieving distinctions and excelling in customer service, event planning, and teamwork. Ambitious, well-organised, and eager to contribute to growth and innovation in team-oriented roles.</p>
+        </div>
     </div>
-  </section>
+</section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>F1 Race Data Analysis</h3>
-        <p>Analyzed lap times and race strategies using Python & Pandas. Visualized key trends and insights.</p>
-        <a href="https://github.com/username/f1-analysis" target="_blank">View Code</a>
-      </div>
-      <div class="card">
-        <h3>Sales Dashboard</h3>
-        <p>Created interactive dashboards in Tableau showing sales trends, KPIs, and forecasting accuracy.</p>
-        <a href="https://github.com/username/sales-dashboard" target="_blank">View Code</a>
-      </div>
+<!-- Experience -->
+<section id="experience">
+    <div class="container">
+        <h2>Experience</h2>
+        <div class="cards">
+            <div class="card fade-in">
+                <h3>Tech & UX Intern</h3>
+                <p><strong>Virtually Educational</strong> | 06/2025 – 09/2025</p>
+                <ul>
+                    <li>Collaborated on AR and UX-focused educational projects</li>
+                    <li>Helped design and test 3D learning spaces</li>
+                    <li>Contributed to immersive learning environments using Unity</li>
+                </ul>
+            </div>
+            <div class="card fade-in">
+                <h3>Student Ambassador</h3>
+                <p><strong>GiffGaff</strong> | 10/2024 – 11/2024</p>
+                <ul>
+                    <li>Promoted SIM cards via guerrilla marketing</li>
+                    <li>Drove sales and engaged with potential customers</li>
+                </ul>
+            </div>
+            <div class="card fade-in">
+                <h3>Creative Production Assistant</h3>
+                <p><strong>Racquet Studios</strong> | 2024</p>
+                <ul>
+                    <li>Recorded and produced music video for Hate Shit Black Groove</li>
+                    <li>Operated DSLR cameras and lighting rigs</li>
+                </ul>
+            </div>
+            <div class="card fade-in">
+                <h3>Bartender</h3>
+                <p><strong>Las Iguanas</strong> | 05/2024 – 06/2024</p>
+                <ul>
+                    <li>Mixed and served cocktails, handled transactions</li>
+                    <li>Ensured product quality and safety standards</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-  <section id="gamedev">
-    <h2>Game Dev Corner</h2>
-    <p>Check out my experimental game dev projects here:</p>
-    <ul>
-      <li><a href="https://github.com/username/unity-mini-game" target="_blank">Unity Mini Game</a></li>
-      <li><a href="https://github.com/username/unreal-demo" target="_blank">Unreal Engine Demo</a></li>
-    </ul>
-    <p>For full game dev portfolio, see my <a href="https://gamedev.example.com" target="_blank">separate site</a>.</p>
-  </section>
+<!-- Projects -->
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="card fade-in">
+            <h3>Music Video Production</h3>
+            <p><strong>Hate Shit Black Groove</strong> - Racquet Studios</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jqf1ritdyxA" title="Music Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="cards" style="margin-top: 2rem;">
+            <div class="card fade-in">
+                <h3>AR Educational Projects</h3>
+                <p>Barista training simulation and cricket instruction experience using Unity and interactive media</p>
+            </div>
+            <div class="card fade-in">
+                <h3>3D Learning Spaces</h3>
+                <p>Designed and tested immersive learning environments to improve explicit knowledge transfer</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
-  </section>
+<!-- Skills -->
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">Java</span>
+            <span class="skill">SQL</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">C# (Unity)</span>
+            <span class="skill">Web Development</span>
+            <span class="skill">Unity Development</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Team Leadership</span>
+            <span class="skill">Project Management</span>
+        </div>
+    </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-  </footer>
+<!-- Education -->
+<section id="education">
+    <div class="container">
+        <h2>Education</h2>
+        <div class="cards">
+            <div class="card fade-in">
+                <h3>MSci Computer Science</h3>
+                <p><strong>University of Sussex</strong> | 2023 – 2026</p>
+                <p>On track to achieve 2:1</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Level 3 Extended Diploma in Game Development</h3>
+                <p><strong>East Sussex College</strong> | 2023</p>
+                <p>Distinction achieved</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <div class="contact">
+            <a href="mailto:Leroymichsmith@gmail.com">Email Me</a>
+            <a href="tel:07760818142">Call Me</a>
+            <a href="https://www.linkedin.com/in/leroy-smith-0249aa386/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Leroy-Stack" target="_blank">GitHub</a>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #bbb;">📍 Brighton, UK</p>
+    </div>
+</section>
+
+<script>
+    // Simple fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(el);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
