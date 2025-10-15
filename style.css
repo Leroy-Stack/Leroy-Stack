@@ -1,0 +1,34 @@
+/* Studio GIF Styles */
+.gif-container {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.studio-gif {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.studio-gif:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive GIF sizing */
+@media (max-width: 768px) {
+    .studio-gif {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-gif {
+        max-width: 250px;
+    }
+}
