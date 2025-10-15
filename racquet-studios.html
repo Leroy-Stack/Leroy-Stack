@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racquet Studios - Hate Shit Black Groove | Leroy Smith</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base & Reset */
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: #111; color: #eee; overflow-x:hidden; }
+        a { color: inherit; text-decoration:none; }
+
+        /* Container */
+        .container { width:90%; max-width:1200px; margin:auto; padding:2rem 0; }
+
+        /* Navigation */
+        .nav { padding: 1rem 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .back-btn { 
+            padding: 0.5rem 1rem; 
+            background: rgba(255,255,255,0.1); 
+            border: 1px solid #eee; 
+            border-radius: 6px; 
+            transition: 0.3s; 
+            font-size: 0.9rem;
+        }
+        .back-btn:hover { background: #eee; color: #111; }
+
+        /* Project Header */
+        .project-header { 
+            text-align: center; 
+            padding: 4rem 0 2rem; 
+            background: linear-gradient(135deg, #333, #111);
+        }
+        .project-header h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-tagline { font-size: 1.2rem; color: #bbb; margin-bottom: 2rem; }
+
+        /* Content Sections */
+        section { padding: 3rem 0; }
+        h2 { margin-bottom: 2rem; font-size: 2rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem; }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Studio GIFs */
+        .gif-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            margin: 2rem 0; 
+        }
+        .gif-item { text-align: center; }
+        .studio-gif { 
+            max-width: 100%; 
+            border-radius: 8px; 
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s;
+        }
+        .studio-gif:hover { transform: scale(1.02); }
+        .gif-caption { margin-top: 1rem; color: #bbb; font-size: 0.9rem; }
+
+        /* Project Details */
+        .project-details { 
+            background: rgba(255,255,255,0.05); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .detail-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1.5rem; 
+        }
+        .detail-item h3 { color: #fff; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .detail-item p { color: #ccc; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-header h1 { font-size: 2.5rem; }
+            .gif-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="index.html" class="back-btn">← Back to Portfolio</a>
+            <span>Racquet Studios Project</span>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>Hate Shit Black Groove</h1>
+            <p class="project-tagline">Music Video Production - Racquet Studios</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Video Section -->
+        <section id="video">
+            <h2>Final Music Video</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jqf1ritdyxA" title="Hate Shit Black Groove Music Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Studio Space Section -->
+        <section id="studio">
+            <h2>Studio & Production</h2>
+            <div class="gif-grid">
+                <div class="gif-item">
+                    <img src="assets/studio.gif" alt="Racquet Studios workspace" class="studio-gif">
+                    <p class="gif-caption">Main studio workspace and equipment setup</p>
+                </div>
+                <div class="gif-item">
+                    <img src="assets/studio(1).gif" alt="Behind the scenes production" class="studio-gif">
+                    <p class="gif-caption">Behind the scenes - production process</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section id="details">
+            <h2>Project Details</h2>
+            <div class="project-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h3>Role</h3>
+                        <p>Creative Production Assistant</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Studio</h3>
+                        <p>Racquet Studios</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Timeline</h3>
+                        <p>2024 Production</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Responsibilities</h3>
+                        <p>DSLR Operation, Lighting Setup, Production Assistance</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Project Overview</h3>
+                    <p>Worked as part of the creative team at Racquet Studios to produce the music video for "Hate Shit Black Groove". Responsibilities included operating DSLR cameras, managing lighting rigs, setting up immersive 3D lighting environments, and working with green screens and actors to enhance cinematic scenes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.gif-item, .project-details').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
