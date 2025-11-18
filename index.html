@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leroy Smith | Portfolio</title>
     
-    <!-- FAVICON FIXES - Try these different approaches -->
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=2">
-    
-    <!-- Alternative formats -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="apple-touch-icon" href="assets/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Base & Reset */
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
@@ -75,11 +70,13 @@
             backdrop-filter: blur(6px); 
             transition: transform 0.3s; 
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover { transform: translateY(-10px); }
         .card h3 { margin-bottom:0.5rem; font-size: 1.3rem; }
         .card p { font-size:0.9rem; color:#ccc; margin-bottom: 1rem; }
-        .card ul { list-style: none; padding-left: 0; }
+        .card ul { list-style: none; padding-left: 0; margin-bottom: auto; }
         .card li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
         .card li::before { content: '▹'; position: absolute; left: 0; color: #eee; }
 
@@ -95,23 +92,37 @@
         }
         .skill:hover { background:#eee; color:#111; transform: scale(1.05); }
 
-        /* Video Container */
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            margin: 2rem 0;
-            border-radius: 12px;
-            overflow: hidden;
+        /* Audio Section Styles (Added for Music Player) */
+        .audio-section {
+            margin-top: auto;
+            background: rgba(0,0,0,0.2);
+            padding: 0.8rem;
+            border-radius: 8px;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+
+        .audio-list {
+            max-height: 200px; /* Keeps the list compact */
+            overflow-y: auto;  /* Adds scrollbar if needed */
+            padding-right: 5px;
+        }
+
+        /* Dark Scrollbar for Audio List */
+        .audio-list::-webkit-scrollbar { width: 6px; }
+        .audio-list::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+        .audio-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+
+        .audio-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .audio-item span {
+            display: block; font-size: 0.85rem; color: #ccc; margin-bottom: 0.3rem;
+        }
+
+        .audio-item audio {
+            width: 100%; height: 30px; outline: none; filter: invert(0.9);
         }
 
         /* Contact */
@@ -136,14 +147,8 @@
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
@@ -153,7 +158,6 @@
 </head>
 <body>
 
-<!-- Hero -->
 <header>
     <img src="assets/profile.jpg" alt="Leroy Smith" class="fade-in">
     <h1 class="fade-in">Leroy Smith</h1>
@@ -166,7 +170,6 @@
     </div>
 </header>
 
-<!-- About -->
 <section id="about">
     <div class="container">
         <h2>About Me</h2>
@@ -176,7 +179,6 @@
     </div>
 </section>
 
-<!-- Experience -->
 <section id="experience">
     <div class="container">
         <h2>Experience</h2>
@@ -218,8 +220,6 @@
     </div>
 </section>
 
-<!-- Projects -->
-<!-- In your Projects section, replace the current Music Video card with this: -->
 <section id="projects">
     <div class="container">
         <h2>Projects</h2>
@@ -229,24 +229,25 @@
                 <p><strong>Hate Shit Black Groove</strong> - Racquet Studios</p>
                 <p>Creative production assistant for music video featuring DSLR operation, lighting setup, and immersive 3D environments.</p>
                 <div style="margin-top: 1rem;">
-                    <a href="racquet-studios.html" class="btn-primary" style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">
+                    <a href="racquet-studios.html" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border: 1px solid #eee; border-radius: 6px; font-size: 0.9rem;">
                         View Project Details →
                     </a>
                 </div>
             </div>
+
             <div class="card fade-in">
                 <h3>AR Educational Projects</h3>
-                <p>Barista training simulation and cricket instruction experience using Unity and interactive media</p>
+                <p>Barista training simulation and cricket instruction experience using Unity and interactive media.</p>
             </div>
+
             <div class="card fade-in">
                 <h3>3D Learning Spaces</h3>
-                <p>Designed and tested immersive learning environments to improve explicit knowledge transfer</p>
+                <p>Designed and tested immersive learning environments to improve explicit knowledge transfer.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Skills -->
 <section id="skills">
     <div class="container">
         <h2>Skills</h2>
@@ -266,7 +267,6 @@
     </div>
 </section>
 
-<!-- Education -->
 <section id="education">
     <div class="container">
         <h2>Education</h2>
@@ -275,17 +275,35 @@
                 <h3>MSci Computer Science</h3>
                 <p><strong>University of Sussex</strong> | 2023 – 2026</p>
                 <p>On track to achieve 2:1</p>
+                <p>Focusing on software engineering, algorithms, and advanced computing concepts.</p>
             </div>
-            <div class="card fade-in">
+            
+            <div class="card fade-in" style="grid-row: span 2; display: flex; flex-direction: column;">
                 <h3>Level 3 Extended Diploma in Game Development</h3>
                 <p><strong>East Sussex College</strong> | 2023</p>
-                <p>Distinction achieved</p>
+                <p style="margin-bottom: 1rem;"><strong>Grade:</strong> Distinction</p>
+                
+                <div style="background: rgba(255,255,255,0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+                    <h4 style="margin-bottom: 0.5rem; color: #fff; font-size: 1rem;">Final Major Project: "Unsaved"</h4>
+                    <a href="unsaved-game.html" style="display: inline-block; padding: 0.4rem 0.8rem; background: #eee; color: #111; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="audio-section">
+                    <h4 style="font-size: 0.95rem; margin-bottom: 0.8rem; color: #bbb; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                        🎵 Original Soundtrack (<span id="track-count">0</span> tracks)
+                    </h4>
+                    
+                    <div class="audio-list" id="music-container">
+                        <p style="font-size:0.8rem; color:#888; text-align:center; padding:1rem;">Loading tracks...</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
     <div class="container">
         <h2>Contact</h2>
@@ -300,7 +318,7 @@
 </section>
 
 <script>
-    // Simple fade-in animation on scroll
+    // 1. Simple fade-in animation on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -323,7 +341,7 @@
         observer.observe(el);
     });
 
-    // Smooth scrolling for navigation links
+    // 2. Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -336,6 +354,48 @@
             }
         });
     });
+
+    // 3. Auto-Load Music from playlist.json
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.getElementById('music-container');
+        const countLabel = document.getElementById('track-count');
+        
+        // Check if the container exists (avoids errors if you move this script)
+        if(container) {
+            fetch('assets/playlist.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("HTTP error " + response.status);
+                    return response.json();
+                })
+                .then(tracks => {
+                    container.innerHTML = ''; // Clear "Loading..." text
+                    if(countLabel) countLabel.textContent = tracks.length;
+
+                    tracks.forEach(track => {
+                        const item = document.createElement('div');
+                        item.className = 'audio-item';
+                        
+                        // Build the player HTML
+                        item.innerHTML = `
+                            <span>${track.title}</span>
+                            <audio controls preload="none">
+                                <source src="assets/music/${track.file}" type="audio/mpeg">
+                            </audio>
+                        `;
+                        container.appendChild(item);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading playlist:', error);
+                    container.innerHTML = `
+                        <p style="color:#ff6b6b; font-size:0.8rem; text-align:center;">
+                            Unable to load playlist.<br>
+                            (Use Live Server to view)
+                        </p>`;
+                });
+        }
+    });
 </script>
+
 </body>
 </html>
