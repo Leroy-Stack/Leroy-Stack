@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo n Mizu - 2D Development | Leroy Smith</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: #111; color: #eee; overflow-x:hidden; }
+        a { color: inherit; text-decoration:none; }
+
+        /* Custom Dark Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; border: 2px solid #111; }
+
+        .container { width:90%; max-width:1200px; margin:auto; padding:2rem 0; }
+
+        /* Navigation */
+        .nav { padding: 1rem 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .back-btn { 
+            padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); 
+            border: 1px solid #eee; border-radius: 6px; font-size: 0.9rem; transition: 0.3s;
+        }
+        .back-btn:hover { background: #eee; color: #111; }
+
+        /* Hero Section */
+        .project-header { 
+            text-align: center; 
+            padding: 5rem 0 3rem; 
+            background: radial-gradient(circle at center, #2a1a1a 0%, #111 70%);
+        }
+        .project-header h1 { 
+            font-family: 'Press Start 2P', cursive; /* Pixel Font */
+            font-size: 2.5rem; 
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff4d4d, #4da6ff); /* Fire Red to Water Blue */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.5;
+        }
+        .project-tagline { font-size: 1.1rem; color: #bbb; }
+
+        /* Content Layout */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .asset-display {
+            background: #1a1a1a;
+            border: 2px dashed #333;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        /* Pixel Art Scaling */
+        .pixel-art {
+            width: 256px; 
+            height: 256px;
+            image-rendering: pixelated; 
+            filter: drop-shadow(0 0 20px rgba(255, 77, 77, 0.4)); /* Red Glow */
+        }
+
+        .details h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #fff; }
+        .details p { color: #ccc; line-height: 1.6; margin-bottom: 1.5rem; }
+        
+        .tech-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .showcase-grid { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="index.html" class="back-btn">← Back to Portfolio</a>
+            <span>2D Prototype</span>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container">
+            <h1 class="fade-in">Leo n Mizu</h1>
+            <p class="project-tagline fade-in" style="animation-delay: 0.2s">A 2D Elemental Adventure for Kids</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="showcase-grid">
+            
+            <div class="asset-display fade-in" style="animation-delay: 0.4s">
+                <img src="assets/art/fireball_sprite.gif" alt="Leo Fire Ability Animation" class="pixel-art">
+                <p style="margin-top: 2rem; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #666;">
+                    Leo's SpriteSheet
+                </p>
+            </div>
+
+            <div class="details fade-in" style="animation-delay: 0.6s">
+                <h2>Concept Overview</h2>
+                <p>
+                    "Leo n Mizu" is a planned 2D puzzle-platformer designed for a younger audience. The game focuses on two elemental characters—<strong>Leo (Fire)</strong> and <strong>Mizu (Water)</strong>—who must work together to navigate obstacles.
+                </p>
+                <p>
+                    The core mechanic involves swapping control between the two characters to interact with the environment: Leo burns through wooden barriers, while Mizu freezes water to create platforms.
+                </p>
+                
+                <div style="margin-top: 2rem;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: #eee;">Technical Focus</h3>
+                    <div>
+                        <span class="tech-tag">Unity 2D</span>
+                        <span class="tech-tag">Sprite Animation</span>
+                        <span class="tech-tag">Pixel Art</span>
+                        <span class="tech-tag">State Machines</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

@@ -16,6 +16,13 @@
         body { background: #111; color: #eee; overflow-x:hidden; }
         a { color: inherit; text-decoration:none; }
 
+        /* Custom Dark Scrollbar */
+        html { scrollbar-width: thin; scrollbar-color: #444 #111; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; border: 2px solid #111; }
+        ::-webkit-scrollbar-thumb:hover { background: #666; }
+
         /* Container */
         .container { width:90%; max-width:1200px; margin:auto; padding:2rem 0; }
 
@@ -92,7 +99,7 @@
         }
         .skill:hover { background:#eee; color:#111; transform: scale(1.05); }
 
-        /* Audio Section Styles (Added for Music Player) */
+        /* Audio Section Styles */
         .audio-section {
             margin-top: auto;
             background: rgba(0,0,0,0.2);
@@ -101,12 +108,12 @@
         }
 
         .audio-list {
-            max-height: 200px; /* Keeps the list compact */
-            overflow-y: auto;  /* Adds scrollbar if needed */
+            max-height: 200px;
+            overflow-y: auto;
             padding-right: 5px;
         }
 
-        /* Dark Scrollbar for Audio List */
+        /* Scrollbar for Audio List */
         .audio-list::-webkit-scrollbar { width: 6px; }
         .audio-list::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
         .audio-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
@@ -224,6 +231,18 @@
     <div class="container">
         <h2>Projects</h2>
         <div class="cards">
+            
+            <div class="card fade-in">
+                <h3>Leo n Mizu</h3>
+                <p><strong>2D Pixel Art Prototype</strong></p>
+                <p>Concept for a kid-friendly elemental puzzle platformer. Showcasing 2D sprite animation and state machine logic.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="leo-mizu.html" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border: 1px solid #eee; border-radius: 6px; font-size: 0.9rem;">
+                        View Concept →
+                    </a>
+                </div>
+            </div>
+
             <div class="card fade-in">
                 <h3>Music Video Production</h3>
                 <p><strong>Hate Shit Black Groove</strong> - Racquet Studios</p>
@@ -333,7 +352,6 @@
         });
     }, observerOptions);
 
-    // Observe all fade-in elements
     document.querySelectorAll('.fade-in').forEach(el => {
         el.style.opacity = "0";
         el.style.transform = "translateY(20px)";
