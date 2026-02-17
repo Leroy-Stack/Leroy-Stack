@@ -87,6 +87,14 @@
         .card li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
         .card li::before { content: '▹'; position: absolute; left: 0; color: #eee; }
 
+        /* Creative/Model Section specific */
+        .creative-card {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; overflow: hidden;
+            background: #000; border: 1px solid #333;
+        }
+        .creative-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+        .creative-image { background: url('model/0.jpg') center center / cover no-repeat; min-height: 400px; }
+
         /* Skills */
         .skills { display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; }
         .skill { 
@@ -150,6 +158,8 @@
             header h1{ font-size:2.5rem; } 
             .buttons { flex-direction: column; align-items: center; }
             .buttons a { width: 200px; text-align: center; }
+            .creative-card { grid-template-columns: 1fr; }
+            .creative-image { height: 300px; order: -1; }
         }
 
         /* Animations */
@@ -168,8 +178,9 @@
 <header>
     <img src="assets/profile.jpg" alt="Leroy Smith" class="fade-in">
     <h1 class="fade-in">Leroy Smith</h1>
-    <p class="fade-in">Computer Science Undergrad | Problem Solver | Creative Technologist</p>
+    <p class="fade-in">Computer Science Undergrad | Creative Technologist | Editorial Model</p>
     <div class="buttons">
+        <a href="modeling.html" style="background: #fff; color: #111;">Modeling Portfolio</a>
         <a href="assets/Leroy-Smith-CV.pdf" download>Download CV</a>
         <a href="https://www.linkedin.com/in/leroy-smith-0249aa386/" target="_blank">LinkedIn</a>
         <a href="https://github.com/Leroy-Stack" target="_blank">GitHub</a>
@@ -182,6 +193,24 @@
         <h2>About Me</h2>
         <div class="card fade-in">
             <p>Third-year Computer Science undergraduate with a passion for problem-solving and effective communication. Proven track record of achieving distinctions and excelling in customer service, event planning, and teamwork. Ambitious, well-organised, and eager to contribute to growth and innovation in team-oriented roles.</p>
+        </div>
+    </div>
+</section>
+
+<section id="creative">
+    <div class="container">
+        <h2>Creative Work</h2>
+        <div class="card creative-card fade-in">
+            <div class="creative-content">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0.5rem;">Editorial & Commercial</p>
+                <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Modeling Portfolio</h3>
+                <p style="margin-bottom: 2rem; line-height: 1.6; color: #bbb;">
+                    Exploring the intersection of visual storytelling and high-fashion editorial. 
+                    Representing a blend of athletic build and urban aesthetic for commercial and creative productions.
+                </p>
+                <a href="modeling.html" style="display:inline-block; border-bottom: 2px solid #fff; padding-bottom: 5px; font-weight: 700;">View Full Gallery →</a>
+            </div>
+            <div class="creative-image"></div>
         </div>
     </div>
 </section>
@@ -269,7 +298,7 @@
 
 <section id="skills">
     <div class="container">
-        <h2>Skills</h2>
+        <h2>Technical Arsenal</h2>
         <div class="skills">
             <span class="skill">Python</span>
             <span class="skill">Java</span>
@@ -378,7 +407,6 @@
         const container = document.getElementById('music-container');
         const countLabel = document.getElementById('track-count');
         
-        // Check if the container exists (avoids errors if you move this script)
         if(container) {
             fetch('assets/playlist.json')
                 .then(response => {
@@ -386,14 +414,12 @@
                     return response.json();
                 })
                 .then(tracks => {
-                    container.innerHTML = ''; // Clear "Loading..." text
+                    container.innerHTML = ''; 
                     if(countLabel) countLabel.textContent = tracks.length;
 
                     tracks.forEach(track => {
                         const item = document.createElement('div');
                         item.className = 'audio-item';
-                        
-                        // Build the player HTML
                         item.innerHTML = `
                             <span>${track.title}</span>
                             <audio controls preload="none">
