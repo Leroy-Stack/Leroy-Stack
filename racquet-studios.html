@@ -16,7 +16,7 @@
         .container { width:90%; max-width:1200px; margin:auto; padding:2rem 0; }
 
         /* Navigation */
-        .nav { padding: 1rem 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
+        .nav { padding: 1rem 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .back-btn { 
             padding: 0.5rem 1rem; 
@@ -25,6 +25,7 @@
             border-radius: 6px; 
             transition: 0.3s; 
             font-size: 0.9rem;
+            display: inline-block;
         }
         .back-btn:hover { background: #eee; color: #111; }
 
@@ -93,11 +94,21 @@
         }
         .detail-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem; 
         }
         .detail-item h3 { color: #fff; margin-bottom: 0.5rem; font-size: 1.1rem; }
         .detail-item p { color: #ccc; font-size: 0.9rem; }
+        .detail-item a { text-decoration: underline; transition: 0.3s; }
+        .detail-item a:hover { color: #fff; }
+
+        /* Call to Action Section */
+        .studio-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -107,7 +118,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-content">
             <a href="index.html" class="back-btn">← Back to Portfolio</a>
@@ -115,7 +125,6 @@
         </div>
     </nav>
 
-    <!-- Project Header -->
     <header class="project-header">
         <div class="container">
             <h1>Hate Shit Black Groove</h1>
@@ -123,9 +132,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container">
-        <!-- Video Section -->
         <section id="video">
             <h2>Final Music Video</h2>
             <div class="video-container">
@@ -133,7 +140,6 @@
             </div>
         </section>
 
-        <!-- Studio Space Section -->
         <section id="studio">
             <h2>Studio & Production</h2>
             <div class="gif-grid">
@@ -148,7 +154,6 @@
             </div>
         </section>
 
-        <!-- Project Details -->
         <section id="details">
             <h2>Project Details</h2>
             <div class="project-details">
@@ -166,14 +171,25 @@
                         <p>2024 Production</p>
                     </div>
                     <div class="detail-item">
-                        <h3>Responsibilities</h3>
-                        <p>DSLR Operation, Lighting Setup, Production Assistance</p>
+                        <h3>Website</h3>
+                        <p><a href="https://racquet.studio" target="_blank">racquet.studio</a></p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Instagram</h3>
+                        <p><a href="https://www.instagram.com/racquetstudios/" target="_blank">@racquetstudios</a></p>
                     </div>
                 </div>
                 
                 <div style="margin-top: 2rem;">
                     <h3>Project Overview</h3>
                     <p>Worked as part of the creative team at Racquet Studios to produce the music video for "Hate Shit Black Groove". Responsibilities included operating DSLR cameras, managing lighting rigs, setting up immersive 3D lighting environments, and working with green screens and actors to enhance cinematic scenes.</p>
+                </div>
+
+                <div class="studio-cta">
+                    <p style="font-style: italic; color: #fff; margin-bottom: 1.5rem;">
+                        "Racquet Studios – Your leading partner in conquering the challenges of all types of production!"
+                    </p>
+                    <a href="https://racquet.studio" target="_blank" class="back-btn">Visit Racquet Studios</a>
                 </div>
             </div>
         </section>
