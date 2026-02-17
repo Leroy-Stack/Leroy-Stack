@@ -3,87 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leroy Smith | Editorial Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>The Brighton Study | Leroy Smith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-        body { background: #000; color: #fff; overflow-x: hidden; line-height: 1.6; }
+        body { background: #0a0a0a; color: #eee; overflow-x: hidden; scroll-behavior: smooth; }
         
-        .nav { padding: 2rem; display: flex; justify-content: space-between; position: fixed; width: 100%; top: 0; z-index: 100; mix-blend-mode: difference; }
-        .nav a { text-decoration: none; color: #fff; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        /* Minimalist Navigation */
+        .nav { padding: 1.5rem; display: flex; justify-content: space-between; position: fixed; width: 100%; top: 0; z-index: 1000; mix-blend-mode: difference; }
+        .nav a { text-decoration: none; color: #fff; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.3; transition: 0.3s; }
 
-        header { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        header h1 { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 700; text-transform: uppercase; line-height: 0.9; margin-bottom: 1rem; }
-        header p { font-size: 1rem; letter-spacing: 5px; color: #666; text-transform: uppercase; }
-
-        .stats-strip { 
-            display: flex; justify-content: center; gap: 3rem; padding: 2rem; border-top: 1px solid #222; border-bottom: 1px solid #222;
-            margin-bottom: 4rem; color: #888; font-size: 0.8rem; letter-spacing: 1px;
-        }
-        .stats-strip b { color: #fff; margin-right: 5px; }
-
-        /* Editorial Masonry Grid */
-        .editorial-grid {
-            max-width: 1400px; margin: 0 auto; display: grid;
-            grid-template-columns: repeat(12, 1fr); gap: 20px; padding: 20px;
+        /* Hidden Ghost Branding */
+        .ghost-credit { 
+            position: fixed; bottom: 1.5rem; left: 1.5rem; 
+            font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; 
+            opacity: 0.15; z-index: 1000; pointer-events: none;
         }
 
-        .img-wrap { overflow: hidden; background: #111; position: relative; }
-        .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s transform ease; filter: grayscale(1); }
-        .img-wrap:hover img { transform: scale(1.05); filter: grayscale(0); }
+        /* The Brighton Lanes Sidebar */
+        .map-sidebar {
+            position: fixed; top: 0; right: 0; width: 38%; height: 100vh;
+            z-index: 50; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: #0a0a0a;
+        }
 
-        /* Custom Editorial Placement */
-        .item-0 { grid-column: span 8; height: 80vh; }
-        .item-1 { grid-column: span 4; height: 80vh; margin-top: 4rem; }
-        .item-2 { grid-column: 2 / span 5; height: 70vh; }
-        .item-3 { grid-column: 7 / span 6; height: 90vh; transform: translateY(-10%); }
-        .item-4 { grid-column: span 6; height: 70vh; }
-        .item-5 { grid-column: span 6; height: 70vh; margin-top: 2rem; }
+        /* Map Layout */
+        .map-wrapper { position: relative; width: 80%; height: 60vh; }
+        .brighton-map-svg { width: 100%; height: 100%; fill: none; }
+        
+        /* Waypoints */
+        .map-waypoint { fill: #1a1a1a; stroke: #222; stroke-width: 1; transition: 0.5s; }
+        .map-waypoint.active { fill: #fff; stroke: #fff; r: 4; filter: drop-shadow(0 0 5px #fff); }
 
-        footer { padding: 8rem 2rem; text-align: center; }
-        footer a { font-size: 1.5rem; color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 10px; transition: 0.3s; }
-        footer a:hover { color: #888; border-color: #888; }
+        /* Location Pop-ups */
+        .location-popup {
+            position: absolute; background: rgba(15, 15, 15, 0.95); border: 1px solid #222;
+            padding: 8px 12px; border-radius: 2px; width: 150px; opacity: 0;
+            transform: translateX(10px); transition: 0.4s ease; pointer-events: none; z-index: 60;
+        }
+        .location-popup.show { opacity: 1; transform: translateX(0); pointer-events: auto; }
+        .location-popup h4 { font-size: 0.55rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; color: #eee; }
+        .location-popup a { font-size: 0.45rem; color: #555; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid #222; }
 
-        @media (max-width: 768px) {
-            .editorial-grid { display: flex; flex-direction: column; padding: 10px; }
-            .item-0, .item-1, .item-2, .item-3, .item-4, .item-5 { height: 60vh; margin: 0; transform: none; width: 100%; }
-            .stats-strip { flex-wrap: wrap; gap: 1rem; }
-            header h1 { font-size: 4rem; }
+        /* Gallery Layout */
+        .lanes-gallery { width: 62%; display: flex; flex-direction: column; padding-left: 5%; }
+        .frame { position: relative; margin-bottom: 75vh; display: flex; flex-direction: column; opacity: 0.05; transition: opacity 1.5s ease; }
+        .frame.active { opacity: 1; }
+        .frame img { max-width: 100%; max-height: 90vh; width: auto; height: auto; display: block; filter: grayscale(1); transition: 1.5s ease; object-fit: contain; }
+        .frame:hover img { filter: grayscale(0); }
+
+        /* Hierarchy Layouts */
+        .center-large { width: 100%; align-items: center; }
+        .left-asymmetric { align-self: flex-start; margin-left: 5%; width: 80%; }
+        .large-centered { align-self: center; width: 90%; }
+        .mood-focus { align-self: center; width: 35%; opacity: 0.4; } /* Adjusted size for last photo */
+
+        @media (max-width: 1024px) {
+            .map-sidebar { display: none; }
+            .lanes-gallery { width: 100%; padding: 1.5rem; }
+            .mood-focus { width: 70%; }
         }
     </style>
 </head>
 <body>
 
     <nav class="nav">
-        <a href="index.html">← Profile</a>
-        <a href="mailto:Leroymichsmith@gmail.com">Bookings</a>
+        <a href="index.html">← Index</a>
     </nav>
 
-    <header>
-        <p>Leroy Smith</p>
-        <h1>VISUAL<br>PORTFOLIO</h1>
-    </header>
+    <div class="ghost-credit">Imagery by Daisy</div>
 
-    <div class="stats-strip">
-        <span><b>HT</b> 5'11"</span>
-        <span><b>EYES</b> DARK BROWN</span>
-        <span><b>HAIR</b> BLACK / AFRO</span>
-        <span><b>LOC</b> BRIGHTON / LONDON</span>
-    </div>
+    <aside class="map-sidebar">
+        <div class="map-wrapper">
+            <svg class="brighton-map-svg" viewBox="0 0 240 340">
+                <path id="walk-path" d="M100,20 L100,45 L80,55 L85,110 L125,120 L165,145 L135,175 L95,195 L60,245 L120,265 L185,245 L215,215" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" />
+                
+                <path id="active-trace" d="M100,20 L100,45 L80,55 L85,110 L125,120 L165,145 L135,175 L95,195 L60,245 L120,265 L185,245 L215,215" stroke="#fff" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" />
 
-    <main class="editorial-grid">
-        <div class="img-wrap item-0"><img src="model.jpeg" alt="Editorial View"></div>
-        <div class="img-wrap item-1"><img src="model1.jpeg" alt="Editorial Detail"></div>
-        <div class="img-wrap item-2"><img src="model2.jpeg" alt="Studio Shot"></div>
-        <div class="img-wrap item-3"><img src="model3.jpeg" alt="Full Length Urban"></div>
-        <div class="img-wrap item-4"><img src="model4.jpeg" alt="Profile Editorial"></div>
-        <div class="img-wrap item-5"><img src="model5.jpeg" alt="Stairway Commercial"></div>
+                <circle class="map-waypoint" id="dot-0" cx="100" cy="20" r="3" />
+                <circle class="map-waypoint" id="dot-1" cx="125" cy="120" r="3" />
+                <circle class="map-waypoint" id="dot-2" cx="135" cy="175" r="3" />
+                <circle class="map-waypoint" id="dot-3" cx="215" cy="215" r="3" />
+
+                <circle id="map-tracker" cx="100" cy="20" r="5" fill="#fff" />
+            </svg>
+
+            <div id="pop-0" class="location-popup" style="top: 20px; left: 110px;">
+                <h4>I. North Street</h4>
+                <a href="https://www.google.com/maps?q=50.822292,-0.139781" target="_blank">Pinpoint →</a>
+            </div>
+            <div id="pop-1" class="location-popup" style="top: 120px; left: 135px;">
+                <h4>II. Brighton Place</h4>
+                <a href="https://www.google.com/maps?q=50.821846,-0.139705" target="_blank">Pinpoint →</a>
+            </div>
+            <div id="pop-2" class="location-popup" style="top: 175px; left: 145px;">
+                <h4>III. Market Street</h4>
+                <a href="https://www.google.com/maps?q=50.821846,-0.139705" target="_blank">Pinpoint →</a>
+            </div>
+            <div id="pop-3" class="location-popup" style="top: 215px; left: 115px;">
+                <h4>IV. East Street</h4>
+                <a href="https://www.google.com/maps?q=50.82135,-0.139342" target="_blank">Pinpoint →</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="lanes-gallery">
+        <div class="frame active center-large" data-id="0">
+            <img src="assets/model/model.jpeg" alt="The Ascent">
+        </div>
+
+        <div class="frame left-asymmetric" data-id="1">
+            <img src="assets/model/model1.jpeg" alt="Threshold">
+        </div>
+
+        <div class="frame large-centered" data-id="2">
+            <img src="assets/model/model2.jpeg" alt="Clarity">
+        </div>
+
+        <div class="frame mood-focus" data-id="3">
+            <img src="assets/model/model3.jpeg" alt="Heavy">
+        </div>
     </main>
 
-    <footer>
-        <p style="color: #444; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase;">Direct Inquiries</p>
-        <a href="mailto:Leroymichsmith@gmail.com">Leroymichsmith@gmail.com</a>
-    </footer>
+    <script>
+        const trace = document.getElementById('active-trace');
+        const tracker = document.getElementById('map-tracker');
+        const frames = document.querySelectorAll('.frame');
+        const pathLen = trace.getTotalLength();
 
+        trace.style.strokeDasharray = pathLen;
+        trace.style.strokeDashoffset = pathLen;
+
+        window.addEventListener('scroll', () => {
+            const scrollPerc = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            const drawPos = pathLen * scrollPerc;
+            
+            trace.style.strokeDashoffset = pathLen - drawPos;
+            const p = trace.getPointAtLength(drawPos);
+            tracker.setAttribute('cx', p.x);
+            tracker.setAttribute('cy', p.y);
+
+            frames.forEach(f => {
+                const rect = f.getBoundingClientRect();
+                const id = f.getAttribute('data-id');
+                const dot = document.getElementById('dot-' + id);
+                const pop = document.getElementById('pop-' + id);
+
+                if (rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4) {
+                    f.classList.add('active');
+                    dot.classList.add('active');
+                    pop.classList.add('show');
+                } else {
+                    f.classList.remove('active');
+                    dot.classList.remove('active');
+                    pop.classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
