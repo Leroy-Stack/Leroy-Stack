@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Brighton Study | Leroy Smith</title>
+    <title>Brighton Urban | Leroy Smith</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
@@ -18,6 +18,35 @@
             position: fixed; bottom: 1.5rem; left: 1.5rem; 
             font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; 
             opacity: 0.15; z-index: 1000; pointer-events: none;
+        }
+
+        /* Project Title Section */
+        .project-title {
+            padding: 20vh 5% 10vh;
+            max-width: 62%;
+        }
+        .project-title span {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: #444;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .project-title h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .project-title p {
+            font-size: 0.75rem;
+            color: #666;
+            max-width: 450px;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
         }
 
         /* The Brighton Lanes Sidebar */
@@ -56,11 +85,12 @@
         .center-large { width: 100%; align-items: center; }
         .left-asymmetric { align-self: flex-start; margin-left: 5%; width: 80%; }
         .large-centered { align-self: center; width: 90%; }
-        .mood-focus { align-self: center; width: 35%; opacity: 0.4; } /* Adjusted size for last photo */
+        .mood-focus { align-self: center; width: 35%; opacity: 0.4; }
 
         @media (max-width: 1024px) {
             .map-sidebar { display: none; }
-            .lanes-gallery { width: 100%; padding: 1.5rem; }
+            .lanes-gallery, .project-title { width: 100%; padding: 1.5rem; max-width: 100%; }
+            .project-title { padding-top: 15vh; }
             .mood-focus { width: 70%; }
         }
     </style>
@@ -72,6 +102,12 @@
     </nav>
 
     <div class="ghost-credit">Imagery by Daisy</div>
+
+    <header class="project-title">
+        <span>Editorial // Series 01</span>
+        <h1>Brighton Urban</h1>
+        <p>An urban editorial collaboration exploring the architecture, textures, and narrow pathways of the Brighton Lanes. Captured on location, 2026.</p>
+    </header>
 
     <aside class="map-sidebar">
         <div class="map-wrapper">
@@ -90,19 +126,19 @@
 
             <div id="pop-0" class="location-popup" style="top: 20px; left: 110px;">
                 <h4>I. North Street</h4>
-                <a href="https://www.google.com/maps?q=50.822292,-0.139781" target="_blank">Pinpoint →</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=50.822292,-0.139781" target="_blank">Pinpoint →</a>
             </div>
             <div id="pop-1" class="location-popup" style="top: 120px; left: 135px;">
                 <h4>II. Brighton Place</h4>
-                <a href="https://www.google.com/maps?q=50.821846,-0.139705" target="_blank">Pinpoint →</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=50.821846,-0.139705" target="_blank">Pinpoint →</a>
             </div>
             <div id="pop-2" class="location-popup" style="top: 175px; left: 145px;">
                 <h4>III. Market Street</h4>
-                <a href="https://www.google.com/maps?q=50.821846,-0.139705" target="_blank">Pinpoint →</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=50.821846,-0.139705" target="_blank">Pinpoint →</a>
             </div>
             <div id="pop-3" class="location-popup" style="top: 215px; left: 115px;">
                 <h4>IV. East Street</h4>
-                <a href="https://www.google.com/maps?q=50.82135,-0.139342" target="_blank">Pinpoint →</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=50.82135,-0.139342" target="_blank">Pinpoint →</a>
             </div>
         </div>
     </aside>
